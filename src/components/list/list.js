@@ -5,13 +5,11 @@ class List extends Component {
 
   static propTypes = {
     items: PropTypes.array.isRequired,
-    // onClicked: PropTypes.function
   };
 
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-
     // load the initial state
     this.state = {
       items: props.items ? props.items : []
@@ -32,13 +30,11 @@ class List extends Component {
 
   render() {
     let onClick = this.handleClick;
-
     let listItems = [];
     this.state.items.forEach( item => {
       let record = <Item key={item.id} data={item} handleClick={onClick} /> ;
       listItems.push(record);
     });
-
     return (
       <div className={this.state.wrapperClass}>
         {listItems}

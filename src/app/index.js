@@ -6,6 +6,7 @@ import Dropdown from 'react-dropdown'; // eslint-disable-line no-unused-vars
 
 // App components
 import List from 'src/components/list/list.js'; // eslint-disable-line no-unused-vars
+import Selection from 'src/components/selection';    // eslint-disable-line no-unused-vars
 
 // Import the applications styling
 import 'style/app.scss';
@@ -31,31 +32,70 @@ class App extends Component {
     this.onSelected = this.onSelected.bind(this);
 
     this.state = {
-      filter: 'all'
+      filter: 'all',
+      selected: undefined
     };
   }
 
   onClicked(entry) {
-    console.log('APP Clicked ', entry); // eslint-disable-line no-console
+    this.persistEntry(entry);
   }
 
   onSelected(entry) {
     this.setState({ filter: entry.value });
   }
 
-  render() {
+  // persit the bike to 'state' allowing for refresh ..
+  persistEntry(entry){
+    // let selected = this.state.selected;
+    // selected.push(entry);
+    this.setState({ selected: entry });
+  }
+
+  // filter the data based on the drop down list
+  filterData() {
     let items = bikeData.items;
     if ( this.state.filter && this.state.filter !== 'all') {
       items = bikeData.items.filter( item => {
         return item.class.indexOf(this.state.filter) !== -1;
       });
     }
+    return items;
+  }
+
+  // Build the selected 'bike' information based on choice
+  // makeSelection() {
+  //   let selected;
+  //   if (this.state.selected){
+  //     selected = this.state.selected.name;
+  //   } else {
+  //     selected = 'no current selection';
+  //   }
+  //   return (
+  //     <div className="selection">
+  //       <h2>Selected Bike:</h2>
+  //       <h3>{selected}</h3>
+  //     </div>
+  //   );
+  // }
+
+  render() {
+    let items = this.filterData();
+    let selection = (
+      <Selection bike={this.state.selected} />
+    );
 
     return (
       <div className="container">
         <h1>Bikes Application</h1>
-        <Dropdown options={options} onChange={this.onSelected} value={defaultOption} placeholder="Select an option" />
-        <List items={items} onClicked={this.onClicked} />
+        <div className="col col-4">
+          <label htmlFor="type">Filter bikes</label>
+          <Dropdown name="type" options={options} onChange={this.onSelected} value={defaultOption} placeholder="Select a type" />
+          <List items={items} onClicked={this.onClicked} />
+        </div>
+        <div className="col col-8">
+          {selection}
+        </div>
       </div>
     );
   }

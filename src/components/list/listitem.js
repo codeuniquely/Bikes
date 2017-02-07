@@ -1,5 +1,8 @@
 import { default as React, PropTypes, Component } from 'react'; // eslint-disable-line no-unused-vars
 
+// styling for pills
+import 'style/pills.scss';
+
 class Image extends Component {
 
   static propTypes = {
@@ -41,7 +44,7 @@ class Image extends Component {
     let items;
     if (classes && classes.length > 0) {
       let list = classes.map( (item,i) => {
-        return <li key={i} className="class">{item}</li> ;
+        return <li key={i} className="pill"><a href="#">{item}</a></li> ;
       });
       items = (
         <ul>
@@ -62,7 +65,7 @@ class Image extends Component {
     return (
       <div className={this.state.imgGrid} onClick={this.handleClick}>
         <div className={this.state.imgClass}>
-          <img src={image.large}/>
+          <img src={image.thumb}/>
         </div>
         <div className="description">
           {item.description}
