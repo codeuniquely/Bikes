@@ -14,9 +14,10 @@ import 'style/dropdown.scss';
 import bikeData from 'assets/bikes';
 
 const options = [
-  { value: 'comfort', label: 'comfort' },
-  { value: 'endurance', label: 'endurance' },
-  { value: 'race', label: 'race' }
+  { value: 'comfort', label: 'Comfort' },
+  { value: 'endurance', label: 'Endurance' },
+  { value: 'race', label: 'Race' },
+  { value: 'all', label: 'All Bikes' }
 ];
 
 const defaultOption = options[0];
@@ -26,28 +27,35 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.selected = [];
-
     this.onClicked = this.onClicked.bind(this);
-    this.onSelect = this.onSelect.bind(this);
+    this.onSelected = this.onSelected.bind(this);
+
+    this.state = {
+      filter: 'all'
+    };
   }
 
   onClicked(entry) {
     console.log('APP Clicked ', entry); // eslint-disable-line no-console
   }
 
-  onSelect(entry) {
-    console.log('APP Clicked ', entry); // eslint-disable-line no-console
+  onSelected(entry) {
+    this.setState({ filter: entry.value });
   }
 
   render() {
-
-    console.log('Bike Data is ', bikeData); // eslint-disable-line no-console
+    let items = bikeData.items;
+    if ( this.state.filter && this.state.filter !== 'all') {
+      items = bikeData.items.filter( item => {
+        return item.class.indexOf(this.state.filter) !== -1;
+      });
+    }
 
     return (
       <div className="container">
         <h1>Bikes Application</h1>
-        <Dropdown options={options} onChange={this.onSelect} value={defaultOption} placeholder="Select an option" />
-        <List items={bikeData.items} onClicked={this.onClicked} />
+        <Dropdown options={options} onChange={this.onSelected} value={defaultOption} placeholder="Select an option" />
+        <List items={items} onClicked={this.onClicked} />
       </div>
     );
   }
