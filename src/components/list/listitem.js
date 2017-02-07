@@ -21,8 +21,8 @@ class Image extends Component {
 
     // load the initial state
     this.state = {
-      imgGrid: this.props.gridClass,  // || this.props.defautImgGrid,
-      imgClass: this.props.imgClass,  // || this.props.defautImgClass,
+      imgGrid: this.props.gridClass,
+      imgClass: this.props.imgClass,
       data: this.props.data
     };
   }
@@ -37,21 +37,41 @@ class Image extends Component {
     this.props.handleClick(this.state.data);
   }
 
+  handleClasses(classes) {
+    let items;
+    if (classes && classes.length > 0) {
+      let list = classes.map( (item,i) => {
+        return <li key={i} className="class">{item}</li> ;
+      });
+      items = (
+        <ul>
+          {list}
+        </ul>
+      );
+    }
+    return items;
+  }
+
   render() {
     let item = this.state.data;
     let image = item.image;
+    let classes = this.handleClasses(item.class);
+
+    // there are two url's avaiable 'thumb' and 'large'
 
     return (
       <div className={this.state.imgGrid} onClick={this.handleClick}>
-        <img className={this.state.imgClass} src={image.thumb}/>
-        <div>
+        <div className={this.state.imgClass}>
+          <img src={image.large}/>
+        </div>
+        <div className="description">
           {item.description}
         </div>
-        <div>
+        <div className="name">
           {item.name}
         </div>
-        <div>
-          {item.class}
+        <div className="classes">
+          {classes}
         </div>
       </div>
     );
