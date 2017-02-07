@@ -16,11 +16,9 @@ var rootPath          = path.resolve( __dirname );
 var nodeModulesPath   = path.resolve( __dirname, 'node_modules');
 var buildPath         = path.resolve( __dirname, 'build');
 var srcPath           = path.resolve( __dirname, 'src' );
-var ngPath            = path.resolve( srcPath, 'app' );
-var stylePath         = path.resolve( srcPath, 'style' );
+var appPath           = path.resolve( srcPath, 'app' );
 var assetsPath        = path.resolve( srcPath, 'assets' );
-var servicesPath      = path.resolve( ngPath, 'services' );
-var componentsPath    = path.resolve( ngPath, 'components' );
+var stylePath         = path.resolve( srcPath, 'style' );
 
 // ==============================
 //  Plugins
@@ -52,7 +50,7 @@ var plugins = [
 
   new HtmlWebpackPlugin({
     inject: true,
-    title: 'PigLatin',
+    title: 'Bikes',
     favicon: path.resolve(assetsPath, 'favicon.ico'),
     template: path.resolve(assetsPath, 'index.html')
   }),
@@ -114,6 +112,7 @@ var loaders = [
     exclude: [nodeModulesPath]
   },
   { test: /\.html$/i, loader: 'raw!htmlclean' },
+  { test: /\.json$/i, loader: 'json' },
   { test: /\.ico($|\?)/i, loader: 'file', query:{ name:'[path][name].[ext]', context:assetsPath } },
   { test: /\.scss$/i, loader: ExtractTextPlugin.extract('style', 'css!postcss!sass') }
 ];
@@ -130,9 +129,7 @@ module.exports = {
       code: appPath,
       node: nodeModulesPath,
       assets: assetsPath,
-      style: stylePath,
-      services: servicesPath,
-      components: componentsPath,
+      style: stylePath
     },
     extensions: ['', '.js', '.jsx', '.json', '.html' ]
   },
@@ -161,8 +158,8 @@ module.exports = {
 
   postcss: [
     autoprefixer({
-      // browsers: ['last 2 versions']
-      browsers: ['last 2 versions', '> 2%', 'ie 8-11', 'firefox > 40', 'safari > 5', 'opera > 30', 'ios 6-7', 'android 4']
+      browsers: ['last 2 versions']
+      // browsers: ['last 2 versions', '> 2%', 'ie 8-11', 'firefox > 40', 'safari > 5', 'opera > 30', 'ios 6-7', 'android 4']
     })
   ],
 
