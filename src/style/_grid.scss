@@ -8,6 +8,8 @@
   Generated with http://basscss.com/customize
 */
 
+@import "variables";
+
 .col {
   float: left;
   box-sizing: border-box;
@@ -53,7 +55,7 @@
   width: 100%;
 }
 
-@media (min-width: 40em) {
+@media (min-width: $screen-xs-min) {
   .sm-col {
     float: left;
     box-sizing: border-box;
@@ -100,7 +102,7 @@
   }
 }
 
-@media (min-width: 52em) {
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   .md-col {
     float: left;
     box-sizing: border-box;
@@ -147,7 +149,7 @@
   }
 }
 
-@media (min-width: 64em) {
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
   .lg-col {
     float: left;
     box-sizing: border-box;
