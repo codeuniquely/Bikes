@@ -145,6 +145,7 @@ module.exports = {
     vendor: [
       'react-addons-pure-render-mixin',
       'react-dom',
+      'react-dropdown',
     ]
   },
 
