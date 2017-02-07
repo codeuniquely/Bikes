@@ -43,7 +43,7 @@ class App extends Component {
   }
 
   onPillClicked(entry) {
-    this.setState({ filter: entry.value });
+    this.setState({ filter: entry });
   }
 
   onClicked(entry) {
