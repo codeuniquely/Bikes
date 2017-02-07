@@ -7,7 +7,7 @@
     "sourceType": "module"
   },
   "ecmaFeatures": {
-    "jsx": false,
+    "jsx": true,
     "modules": true,
     "restParams": true,
     "spread": true
@@ -19,6 +19,7 @@
   },
   "parser": "babel-eslint",
   "rules": {
+    "no-var": "off",
     "no-underscore-dangle": 0,
     "quotes": [2, "single"],
     "strict": [2, "never"],

@@ -30,6 +30,8 @@ var plugins = [
       ENV: JSON.stringify(env),
       NODE_ENV: JSON.stringify(env),
     }
+    // ,
+    // 'React': 'react',
   }),
 
   new webpack.optimize.OccurenceOrderPlugin(),
@@ -136,15 +138,11 @@ module.exports = {
 
   entry: {
     app: [
-      'babel-polyfill',
       'webpack/hot/dev-server',
       'webpack-hot-middleware/client?overlay=false',
       path.resolve(srcPath, 'index.js')
     ],
     vendor: [
-      'core-js',
-      'flux',
-      'react',
       'react-addons-pure-render-mixin',
       'react-dom',
     ]
