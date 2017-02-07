@@ -58,14 +58,19 @@ small {
 
     .image {
       padding: 10px;
-      border: 1px solid grey;
-      border-radius: 3px;
+      border: 2px solid rgba(0,0,0,0.2);
+      border-radius: 6px;
       img {
         width: 100%;
       }
       &:hover {
+        border-color: $blue;
+        transition: border-color 0.2s linear;
+
         cursor: pointer;
-        background: #e7e7e7;
+        // background: #e7e7e7;
+        // background: rgba(0,0,0,0.2);
+        border-color: #00339D
       }
     }
   }
