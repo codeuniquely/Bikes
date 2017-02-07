@@ -29,12 +29,17 @@ class App extends Component {
     super(props);
     this.selected = [];
     this.onClicked = this.onClicked.bind(this);
+    this.onPillClicked = this.onPillClicked.bind(this);
     this.onSelected = this.onSelected.bind(this);
 
     this.state = {
       filter: 'all',
       selected: undefined
     };
+  }
+
+  onPillClicked(entry) {
+    this.setState({ filter: entry.value });
   }
 
   onClicked(entry) {
@@ -63,22 +68,6 @@ class App extends Component {
     return items;
   }
 
-  // Build the selected 'bike' information based on choice
-  // makeSelection() {
-  //   let selected;
-  //   if (this.state.selected){
-  //     selected = this.state.selected.name;
-  //   } else {
-  //     selected = 'no current selection';
-  //   }
-  //   return (
-  //     <div className="selection">
-  //       <h2>Selected Bike:</h2>
-  //       <h3>{selected}</h3>
-  //     </div>
-  //   );
-  // }
-
   render() {
     let items = this.filterData();
     let selection = (
@@ -93,7 +82,7 @@ class App extends Component {
             <label htmlFor="type">You may choose a type to filter the bikes</label>
             <Dropdown name="type" options={options} onChange={this.onSelected} value={defaultOption} placeholder="Select a type" />
           </div>
-          <List items={items} onClicked={this.onClicked} />
+          <List items={items} onClicked={this.onClicked} onPillClicked={this.onPillClicked} />
         </div>
         <div className="col-selection">
           {selection}

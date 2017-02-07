@@ -21,6 +21,7 @@ class Image extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handlePillClick = this.handlePillClick.bind(this);
 
     // load the initial state
     this.state = {
@@ -40,11 +41,16 @@ class Image extends Component {
     this.props.handleClick(this.state.data);
   }
 
+  handlePillClick() {
+    let pill = this.refs.pill.textContent;
+    this.props.handlePillClick(pill);
+  }
+
   handleClasses(classes) {
     let items;
     if (classes && classes.length > 0) {
       let list = classes.map( (item,i) => {
-        return <li key={i} className="pill">{item}</li> ;
+        return <li key={i} ref="pill" className="pill" onClick={this.handlePillClick}>{item}</li> ;
       });
       items = (
         <ul>
