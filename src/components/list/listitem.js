@@ -10,7 +10,7 @@ class Image extends Component {
 
   static get defaultProps() {
     return {
-      gridClass: 'col col-6 px2 py2',
+      gridClass: 'col col-6 sm-col-12 px2 py2',
       imgClass: 'image'
     };
   }
