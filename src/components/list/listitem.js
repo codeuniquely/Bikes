@@ -41,16 +41,16 @@ class Image extends Component {
     this.props.handleClick(this.state.data);
   }
 
-  handlePillClick() {
-    let pill = this.refs.pill.textContent;
-    this.props.handlePillClick(pill);
+  handlePillClick(entry) {
+    this.props.handlePillClick(entry);
   }
 
   handleClasses(classes) {
     let items;
     if (classes && classes.length > 0) {
       let list = classes.map( (item,i) => {
-        return <li key={i} ref="pill" className="pill" onClick={this.handlePillClick}>{item}</li> ;
+        let boundItemClick = this.handlePillClick.bind(this, item);
+        return <li key={i} ref="pill" className="pill" onClick={boundItemClick}>{item}</li> ;
       });
       items = (
         <ul>
