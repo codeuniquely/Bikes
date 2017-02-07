@@ -63,11 +63,11 @@ class Image extends Component {
 
     return (
       <div className="listitem" onClick={this.handleClick}>
-        <div className="image">
-          <img src={image.thumb}/>
-        </div>
         <div className="name">
           {item.name}
+        </div>
+        <div className="image">
+          <img src={image.thumb}/>
         </div>
         <p className="description">
           {item.description}

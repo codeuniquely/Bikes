@@ -1,0 +1,39 @@
+@import "colors";
+
+// pills
+.pill {
+  text-decoration:none;
+  border-radius: 30px;
+  font-weight: bold;
+  display:inline-block;
+  font-size:13px;
+  line-height:1.62em;
+  padding:8px 16px;
+  margin:0 6px;
+  color: white;
+
+  transition: All 0.5s ease 0s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+
+  /* background */
+  background: linear-gradient(to bottom, #c5de89 0%, $green 100%);
+  background-size: 100% 120%;
+  background-position: 0 100%;
+
+  &:hover {
+    color:$orange;
+    background-size: 100% 120%;
+    background-position: 0 0;
+  }
+  &:active {
+    transition: none;
+    text-shadow: 0 -1px 1px rgba(255, 255, 255, 1);
+    color: #557B10;
+    background: linear-gradient(to bottom, $green 0%, #c5de89 100%);
+    background-size: 100% 100%;
+    background-position: 0 0;
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
