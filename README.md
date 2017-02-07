@@ -1,15 +1,25 @@
+#Assumptions#
+That NodeJS (version 6 or better) in installed, If not then it can be this can be downloaded and installed from https://nodejs.org/en/
+NPM (version 3 or better) is Installed (comes with installation of node above)
+
+node -v
+```
+v6.3.0
+```
+npm-v
+```
+3.10.3
+```
+
 ## Install and Run Commands ##
 
 ### To install the development environment###
-
      npm install
 
-###To run a npm local server###
-
+###To run the application a npm local server###
      npm start
 
-###Connect to Webpack Dev Server (app)###
-
+###Connect to Included Webpack Dev Server (app)###
      http://localhost:3000
 
 
