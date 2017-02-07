@@ -1,0 +1,39 @@
+@import "colors";
+
+.selector {
+  label {
+    padding: 0 2rem;
+  }
+}
+
+.list {
+  .listitem {
+    padding: 2rem;
+
+    .name {
+      color: $green;
+      font-weight:700;
+      font-size: 1.1em;
+    }
+    .description {
+      color: $blue;
+      font-style: italic;
+      font-size: 0.9em;
+    }
+
+    .image {
+      padding: 10px;
+      border: 2px solid rgba(0,0,0,0.2);
+      border-radius: 6px;
+      img {
+        width: 100%;
+      }
+      &:hover {
+        border-color: $blue;
+        transition: border-color 0.2s linear;
+        cursor: pointer;
+        border-color: #00339D
+      }
+    }
+  }
+}

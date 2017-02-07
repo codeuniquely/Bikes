@@ -1,6 +1,8 @@
 import { default as React, PropTypes, Component } from 'react'; // eslint-disable-line no-unused-vars
 import Item from './listitem'; // eslint-disable-line no-unused-vars
 
+import 'style/list.scss';
+
 class List extends Component {
 
   static propTypes = {
@@ -36,7 +38,7 @@ class List extends Component {
       listItems.push(record);
     });
     return (
-      <div className={this.state.wrapperClass}>
+      <div className="list">
         {listItems}
       </div>
     );

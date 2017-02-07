@@ -1,9 +1,9 @@
 // Themes can override this values
 $screen-es-min: 360px !default;
-$screen-xs-min: 480px !default;
+$screen-xs-min: 480px !default;     // size of thumbnails
 $screen-sm-min: 768px !default;
 $screen-md-min: 992px !default;
-$screen-lg-min: 1200px !default;
+$screen-lg-min: 1200px !default;    // slightly smaller than fullsize image
 
 // So media queries don't overlap when required, provide a maximum
 $screen-es-max: ($screen-xs-min - 1) !default;

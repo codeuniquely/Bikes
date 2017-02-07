@@ -11,12 +11,12 @@ class Image extends Component {
     imgClass: PropTypes.string
   };
 
-  static get defaultProps() {
-    return {
-      gridClass: 'col col-6 sm-col-12 px2 py2',
-      imgClass: 'image'
-    };
-  }
+  // static get defaultProps() {
+  //   return {
+  //     gridClass: 'px2 py2',
+  //     imgClass: 'image'
+  //   };
+  // }
 
   constructor(props) {
     super(props);
@@ -24,8 +24,8 @@ class Image extends Component {
 
     // load the initial state
     this.state = {
-      imgGrid: this.props.gridClass,
-      imgClass: this.props.imgClass,
+      // imgGrid: this.props.gridClass,
+      // imgClass: this.props.imgClass,
       data: this.props.data
     };
   }
@@ -44,7 +44,7 @@ class Image extends Component {
     let items;
     if (classes && classes.length > 0) {
       let list = classes.map( (item,i) => {
-        return <li key={i} className="pill"><a href="#">{item}</a></li> ;
+        return <li key={i} className="pill">{item}</li> ;
       });
       items = (
         <ul>
@@ -55,24 +55,23 @@ class Image extends Component {
     return items;
   }
 
+  // there are two url's avaiable 'thumb' and 'large'
   render() {
     let item = this.state.data;
     let image = item.image;
     let classes = this.handleClasses(item.class);
 
-    // there are two url's avaiable 'thumb' and 'large'
-
     return (
-      <div className={this.state.imgGrid} onClick={this.handleClick}>
-        <div className={this.state.imgClass}>
+      <div className="listitem" onClick={this.handleClick}>
+        <div className="image">
           <img src={image.thumb}/>
-        </div>
-        <div className="description">
-          {item.description}
         </div>
         <div className="name">
           {item.name}
         </div>
+        <p className="description">
+          {item.description}
+        </p>
         <div className="classes">
           {classes}
         </div>

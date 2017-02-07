@@ -1,10 +1,10 @@
 @import "reset";
 @import "grid";
-@import "whitespace";
+// @import "whitespace";
 @import "colors";
 @import "variables";
 
-html, body, form, p, ul, li, div, label, input, select, textarea {
+html, body, p, ul, li, div, label, select {
   font-family: Helvetica, Tahoma, sans-serif;
   font-size: 15pt;
   color:$gray-dark;
@@ -45,33 +45,13 @@ h4 {
 body {
   margin: 0 auto;
 }
-small {
-  color:$gray-light;
-  font-size: 0.6em;
-}
 
 .app {
-
   .container {
-
     padding: 10px;
-
-    .image {
-      padding: 10px;
-      border: 2px solid rgba(0,0,0,0.2);
-      border-radius: 6px;
-      img {
-        width: 100%;
-      }
-      &:hover {
-        border-color: $blue;
-        transition: border-color 0.2s linear;
-
-        cursor: pointer;
-        // background: #e7e7e7;
-        // background: rgba(0,0,0,0.2);
-        border-color: #00339D
-      }
+    .title {
+      text-align: center;
+      padding-bottom:20px;
     }
   }
 }

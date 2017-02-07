@@ -87,13 +87,15 @@ class App extends Component {
 
     return (
       <div className="container">
-        <h1>Bikes Application</h1>
-        <div className="col col-4">
-          <label htmlFor="type">Filter bikes</label>
-          <Dropdown name="type" options={options} onChange={this.onSelected} value={defaultOption} placeholder="Select a type" />
+        <h1 className="title">Bikes Application</h1>
+        <div className="col-list">
+          <div className="selector">
+            <label htmlFor="type">You may choose a type to filter the bikes</label>
+            <Dropdown name="type" options={options} onChange={this.onSelected} value={defaultOption} placeholder="Select a type" />
+          </div>
           <List items={items} onClicked={this.onClicked} />
         </div>
-        <div className="col col-8">
+        <div className="col-selection">
           {selection}
         </div>
       </div>
