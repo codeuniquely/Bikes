@@ -4,6 +4,10 @@ import { default as React, Component } from 'react'; // eslint-disable-line no-u
 // third party components
 import Dropdown from 'react-dropdown'; // eslint-disable-line no-unused-vars
 
+// 3rd party library/support functions
+import reactMixin from 'react-mixin';
+import localStorageMixin from 'react-localstorage';
+
 // App components
 import List from 'src/components/list/list.js'; // eslint-disable-line no-unused-vars
 import Selection from 'src/components/selection';    // eslint-disable-line no-unused-vars
@@ -55,6 +59,7 @@ class App extends Component {
     // let selected = this.state.selected;
     // selected.push(entry);
     this.setState({ selected: entry });
+    // this.localStorage.selected = entry;
   }
 
   // filter the data based on the drop down list
@@ -91,5 +96,7 @@ class App extends Component {
     );
   }
 }
+
+reactMixin(App.prototype, localStorageMixin);
 
 export default App;

@@ -11,7 +11,9 @@
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-dropdown": "^1.2.0"
+    "react-dropdown": "^1.2.0",
+    "react-localstorage": "^0.3.0",
+    "react-mixin": "^3.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
